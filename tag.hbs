@@ -1,0 +1,21 @@
+{{!< default}}
+{{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
+
+
+<div class="intro">
+  <div class="intro-content">
+    <p class="left-title tag-about"><a class="left-title author-site" href="{{@blog.url}}">{{@blog.title}}</a>: POSTS ON</p>
+    <a class="left-title author-title" href="{{tag.url}}">{{tag.name}}</a>
+
+  </div>
+
+</div>
+
+
+{{! The main content area on the homepage }}
+<div class="main">
+
+    {{! The tag below includes the post loop - partials/loop.hbs }}
+    {{> "loop"}}
+
+</div>

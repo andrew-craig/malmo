@@ -1,0 +1,5 @@
+<nav class="side-nav {{#is "home"}}animation-3{{/is}}">
+  {{#foreach navigation}}
+    <a class="{{#if current}} nav-current{{/if}}" href="{{url absolute="true"}}">{{label}}</a>
+  {{/foreach}}
+</nav>

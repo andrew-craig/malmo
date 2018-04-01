@@ -1,0 +1,55 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+
+{{! left side bar}}
+  {{> intro}}
+
+  <div class="main post-main">
+
+    <article class="{{post_class}}">
+    {{! Everything inside the #post tags pulls data from the post }}
+    {{#post}}
+
+        <header class="post-header">
+            <h1 class="post-title">{{title}}</h1>
+            <div class="post-meta">{{date published_at format="DD MMM YYYY"}}</div>
+        </header>
+
+        <div class="post-content">
+            {{content}}
+        </div>
+
+        {{#if tags}}
+        <div class="post-tags">
+            Read more on <em>{{tags}}</em>.
+        </div>
+        {{/if}}
+
+        <div class="post-footer">
+          <div class="post-footer-left">
+          {{#author}}
+          {{#if profile_image}}  <img class="author-img" src="{{img_url profile_image}}" /> {{/if}}
+            <div class="post-footer-author"><a href="{{url}}">{{name}}</a></div>
+          {{/author}}
+
+        </div>
+
+        <div class="post-footer-right">
+          <div class="share">
+            <p>Share this post:</p>
+            <p>
+              <a class="share-twitter" href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                  Twitter</a>,
+              <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url={{url absolute="true"}}&title={{encode title}}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                  LinkedIn</a>
+            </p>
+          </div>
+          </div>
+      </div>
+
+    {{/post}}
+    </article>
+
+</div>
